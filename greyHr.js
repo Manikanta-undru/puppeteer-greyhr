@@ -14,7 +14,7 @@ const signInIntoGreyHr = async (req, res) => {
     while (!successText && retryCount < 3) {
         try {
             const page = await browser.newPage();
-            console.log('v1.2.0');
+            console.log('v1.2.1');
             console.log('New page created');
             await page.goto('https://sunovaatech.greythr.com/');
             console.log('Navigating to GreyHR website');
@@ -31,7 +31,7 @@ const signInIntoGreyHr = async (req, res) => {
             console.log('Submit button clicked');
             await page.waitForNavigation({ waitUntil: 'networkidle0' }); // Wait until the page navigates to the next page
             console.log('Navigated to the next page');
-            await page.waitForNetworkIdle();
+            // await page.waitForNetworkIdle();
             await page.waitForSelector('.home-dashboard', { timeout: 50000 }); // Wait until the class 'home-dashboard' appears in the DOM
             console.log('Dashboard loaded');
             await page.waitForSelector('gt-button', { timeout: 50000 }); // Wait until the custom element 'gt-button' with class name 'hydrate' and attribute 'shade' equal to 'primary' appears in the DOM
