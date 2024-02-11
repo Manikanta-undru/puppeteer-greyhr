@@ -4,9 +4,8 @@ const signInIntoGreyHr = async (req, res) => {
     const signInText = 'You have Successfully Signed in'
     const signOutText = 'You have Successfully Signed out'
     const browser = await puppeteer.launch({
-        headless: false,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        defaultViewport: null,
+      executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH: puppeteer.executablePath(),
+      args: ['--no-sandbox', '--disable-setuid-sandbox','--single-process', '--no-zygote'],
     });
     console.log('Browser launched');
     let successText = null;
