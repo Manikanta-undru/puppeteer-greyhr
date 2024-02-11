@@ -35,5 +35,5 @@ yarn-error.log*
 lerna-debug.log*
 
 # OS generated files
-.DS_Store
+.DS_S
 Thumbs.db
